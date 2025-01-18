@@ -37,7 +37,7 @@ GUMO-PRODUCT/
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx
-│   │   └── globals.css
+│   │   └── favicon.ico
 │   ├── components/
 │   │   ├── Header/
 │   │   ├── Layout/
