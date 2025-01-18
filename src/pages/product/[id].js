@@ -165,11 +165,7 @@ export default function ProductDetail({ product }) {
 
                     {/* Additional Info */}
                     <div className="border-t pt-6">
-                      <div className="flex items-center justify-between text-sm text-gray-500">
-                        <div className="flex items-center">
-                          <FaShareAlt className="mr-2" />
-                          Share Product
-                        </div>
+                      <div className="flex items-center justify-start text-sm text-gray-500">
                         <span>SKU: {product.id}</span>
                       </div>
                     </div>
