@@ -82,8 +82,8 @@ GUMO-PRODUCT/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd GUMO-PRODUCT
+   git clone https://github.com/Officialthesky/product-listing.git
+   cd gumo-product
    ```
 
 2. **Install dependencies**
