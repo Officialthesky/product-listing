@@ -103,33 +103,6 @@ GUMO-PRODUCT/
 
 ## 💻 Usage
 
-### Product Listing Page
-
-The main product listing page (`pages/index.jsx`) provides the following functionality:
-
-```jsx
-// Example usage of the product listing page
-<ProductListing
-  initialProducts={products}
-  initialCategories={categories}
-  initialTotalProducts={totalProducts}
-/>
-```
-
-### Pagination Component
-
-```jsx
-// Example usage of the pagination component
-<Pagination
-  currentPage={page}
-  totalItems={totalProducts}
-  itemsPerPage={limit}
-  onPageChange={setPage}
-  onItemsPerPageChange={setLimit}
-  itemsPerPageOptions={[5, 10, 20]}
-/>
-```
-
 ## 🔍 API Integration
 
 The application uses several API endpoints:
@@ -145,8 +118,6 @@ The application uses Tailwind CSS for styling with custom configurations:
 
 - Responsive design for all screen sizes
 - Custom utility classes
-- Component-specific styles
-- Dark mode support
 
 ## 🔧 Configuration
 
