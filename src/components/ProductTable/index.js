@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { capitalizeWords } from "../../utils";
-import { FaBoxOpen } from "react-icons/fa";
+import { FaBoxOpen, FaEye } from "react-icons/fa";
+import "../../styles/globals.css";
 
-const ProductTable = ({ products }) => {
+const ProductTable = ({ products, pageType, handleRemove }) => {
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 bg-gray-100 rounded-lg">
@@ -59,9 +60,18 @@ const ProductTable = ({ products }) => {
                   </span>
                 </td>
                 <td className="py-4 px-6">
-                  <Link href={`/product/${product.id}`} className="text-sm text-gray-500 hover:text-gray-900">
-                    View Details
-                  </Link>
+                  {pageType ? (
+                    <button 
+                      className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                      onClick={() => handleRemove(product.id)}
+                    >
+                      Remove from {pageType === 'cart' ? 'Cart' : 'Wishlist'}
+                    </button>
+                  ) : (
+                    <Link href={`/product/${product.id}`} className="text-sm text-gray-500 hover:text-gray-900 flex items-center">
+                      <FaEye className="mr-2" /> View Details
+                    </Link>
+                  )}
                 </td>
               </tr>
             ))}
@@ -73,14 +83,13 @@ const ProductTable = ({ products }) => {
       <div className="md:hidden">
         <div className="grid grid-cols-1 gap-4 p-4">
           {products.map((product) => (
-            <Link 
+            <div 
               key={product.id} 
-              href={`/product/${product.id}`}
               className="block bg-white rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-150"
             >
               <div className="p-4">
                 <div className="flex items-start space-x-4">
-                  <div className="relative w-20 h-20 flex-shrink-0 rounded-md border border-gray-200 overflow-hidden">
+                  <Link href={`/product/${product.id}`} className="relative w-20 h-20 flex-shrink-0 rounded-md border border-gray-200 overflow-hidden">
                     <Image 
                       src={product.image} 
                       alt={product.title} 
@@ -88,21 +97,31 @@ const ProductTable = ({ products }) => {
                       className="object-contain" 
                       sizes="(max-width: 80px) 100vw, 80px" 
                     />
-                  </div>
+                  </Link>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 line-clamp-2 mb-1">
-                      {product.title}
-                    </p>
-                    <p className="text-sm font-semibold text-gray-900 mb-2">
-                      ₹{product.price.toFixed(2)}
-                    </p>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-800 text-white">
-                      {capitalizeWords(product.category)}
-                    </span>
+                    <Link href={`/product/${product.id}`}>
+                      <p className="text-sm font-medium text-gray-900 line-clamp-2 mb-1">
+                        {product.title}
+                      </p>
+                      <p className="text-sm font-semibold text-gray-900 mb-2">
+                        ₹{product.price.toFixed(2)}
+                      </p>
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-800 text-white">
+                        {capitalizeWords(product.category)}
+                      </span>
+                    </Link>
+                    {pageType && (
+                      <button
+                        onClick={() => handleRemove(product.id)}
+                        className="mt-3 w-full text-sm text-red-500 hover:text-red-700 font-medium text-left"
+                      >
+                        Remove
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
