@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // utils.js
 export const sortProducts = (products, criteria) => {
   switch (criteria) {
@@ -33,6 +35,20 @@ export const throttle = (func, limit) => {
       func.apply(context, args);
       inThrottle = true;
       setTimeout(() => inThrottle = false, limit);
+    }
+  };
+};
+
+export const useDebounce = (callback, delay) => {
+  const [isDebouncing, setIsDebouncing] = useState(false);
+
+  return (...args) => {
+    if (!isDebouncing) {
+      setIsDebouncing(true);
+      callback(...args);
+      setTimeout(() => {
+        setIsDebouncing(false);
+      }, delay);
     }
   };
 };
