@@ -27,6 +27,12 @@ A modern, responsive React application for managing and displaying products with
   - Total items counter
   - Mobile-responsive design
 
+- **Wishlist & Cart Management**
+  - Add/remove products from wishlist
+  - Add/remove products from cart
+  - Persist wishlist and cart using local storage
+  - Real-time UI updates when modifying wishlist/cart
+
 ## 📁 Project Structure
 
 ```
@@ -45,9 +51,13 @@ GUMO-PRODUCT/
 │   │   ├── ProductFilter/
 │   │   ├── ProductSearch/
 │   │   ├── ProductSort/
-│   │   └── ProductTable/
+│   │   ├── ProductTable/
+│   │   ├── CartWishlistPage/
+│   │
 │   ├── pages/
 │   │   ├── product/
+│   │   ├── cart.jsx
+│   │   ├── wishlist.jsx
 │   │   └── index.jsx
 │   ├── services/
 │   │   └── api.js
@@ -64,6 +74,7 @@ GUMO-PRODUCT/
 ├── tailwind.config.ts
 └── tsconfig.json
 ```
+
 
 ## 🛠️ Technologies Used
 
