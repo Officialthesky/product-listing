@@ -52,7 +52,7 @@ GUMO-PRODUCT/
 │   │   ├── ProductSearch/
 │   │   ├── ProductSort/
 │   │   ├── ProductTable/
-│   │   ├── CartWishlistPage/
+│   │ 
 │   │
 │   ├── pages/
 │   │   ├── product/
