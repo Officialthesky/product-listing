@@ -12,9 +12,6 @@ const ProductTable = ({ products, pageType, handleRemove }) => {
         <h2 className="text-gray-700 text-lg font-semibold">
           No Products Available
         </h2>
-        <p className="text-gray-500 text-sm">
-          Try changing filters or check back later.
-        </p>
       </div>
     );
   }
